@@ -28,24 +28,36 @@ class Solution {
     //     return sum;
     // }
     
-     void solve(TreeNode*root,int low,int high,int &sum)
-    {
-        if(root==NULL)
-        {
-            return;
-        }
-        if(root->val>=low && root->val<=high)
-        {
-            sum+=root->val;
-        }
-        solve(root->left,low,high,sum);
-        solve(root->right,low,high,sum);
-    }
-public:
-    int rangeSumBST(TreeNode* root, int low, int high) {
+//      void solve(TreeNode*root,int low,int high,int &sum)
+//     {
+//         if(root==NULL)
+//         {
+//             return;
+//         }
+//         if(root->val>=low && root->val<=high)
+//         {
+//             sum+=root->val;
+//         }
+//         solve(root->left,low,high,sum);
+//         solve(root->right,low,high,sum);
+//     }
+// public:
+//     int rangeSumBST(TreeNode* root, int low, int high) {
+//         int sum=0;
+//         solve(root,low,high,sum);
+//         return sum;
+//     }
+    
+    public:
+        int rangeSumBST(TreeNode* root, int low, int high) {
         int sum=0;
-        solve(root,low,high,sum);
+        if(root==NULL)
+            return 0;
+        if(root->val>=low && root->val<=high)
+             sum+=root->val;
+        sum+=rangeSumBST(root->left,low,high);
+        sum+=rangeSumBST(root->right,low,high);
+        // solve(root,low,high,sum);
         return sum;
     }
-
 };
