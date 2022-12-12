@@ -19,14 +19,18 @@ class Solution{
         for(int i=0;i<n;i++)
         {
             sum+=A[i];
+            //if the sum is 0 then is this case
             if(sum==0)
             len=i+1;
+            //if the sum is not 0 then ;
             else
             {
+                //if the sum already occurs
             if(freq.find(sum)!=freq.end())
             {
                 len = max(len , i-freq[sum]);
             }
+            // sum already doesn't occur
             else
             {
                 freq[sum]=i;
