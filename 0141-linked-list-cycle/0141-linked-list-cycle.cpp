@@ -18,10 +18,11 @@ public:
             fast = fast->next->next;
             if(slow==fast)
             {
-                return slow;
+                return true;
             }
         }
-        return NULL;
+        return false;
+        
         
         
         
